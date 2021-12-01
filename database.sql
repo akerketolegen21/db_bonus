@@ -1,4 +1,4 @@
-CREATE DATABASE diseases;
+-- CREATE DATABASE diseases;
 CREATE TABLE DiseaseType(
     "id" SERIAL PRIMARY KEY, 
     "description" varchar(140));
@@ -65,7 +65,7 @@ values ('covid-19', 'delta', 'disease 1a', '1'), ('sars', 'X2M', 'disease 1b', '
         ('herpes', 'K2C', 'disease 5c', '5'), ('syphilis', 'Z2L', 'disease 6b', '6'), ('norovirus', 'G2S', 'disease 7a', '7'), ('salmonella', 'H2S', 'disease 8k', '8'), ('pneumonia', 'T2N', 'disease 9j', '9'),
         ('hepatitis-c', 'bacteria', 'disease 11a', '11'), ('hiv', 'bacteria', 'disease 11j', '11');
 
-insert into Discover("cname","disease code", "first enzc date")
+insert into Discover("cname","disease code", "first enc date")
 values ('China', 'covid-19', '2019-10-02'), ('Russia', 'sars', '1967-04-24'), ('Brazil', 'influenza', '1865-07-13'), ('France', 'cold', '1001-10-10'), ('France', 'pneumonia', '1989-11-10'),
         ('Japan', 'herpes', '1845-02-19'), ('India', 'e.coli', '1966-06-28'), ('Germany', 'syphilis', '1984-11-14'), ('India', 'salmonella', '2004-09-26'), ('South Korea', 'norovirus', '2006-07-24'),
         ('Germany', 'hepatitis-c', '1895-01-19'), ('Italy', 'hiv', '1995-10-14');
