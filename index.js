@@ -19,7 +19,12 @@ if (process.env.NODE_ENV === "production") {
 //ROUTES
 
 //create a record
-
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+   });
+   
 app.post("/records", async (req, res) => {
     try {
         const { email, cname, dcode, deaths, patients } = req.body
