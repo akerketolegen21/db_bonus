@@ -5,9 +5,6 @@ const pool = require("./db")
 const path = require("path")
 const PORT = process.env.PORT || 5000
 
-//process.env.PORT
-//process.env.NODE_ENV => production or undefined
-
 //middleware
 app.use(cors())
 app.use(express.json())
@@ -15,7 +12,8 @@ app.use(express.json())
 if (process.env.NODE_ENV === "production") {
     //server static content
     app.use(express.static(path.join(__dirname, "client/build")))
-}
+    console.log("prod")
+}else console.log("dev")
 //ROUTES
 
 //create a record
@@ -24,7 +22,7 @@ app.all('/', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
    });
-   
+
 app.post("/records", async (req, res) => {
     try {
         const { email, cname, dcode, deaths, patients } = req.body
@@ -43,6 +41,7 @@ app.get("/records", async (req, res) => {
     try {
         const allRecords = await pool.query("SELECT * FROM Record")
         res.json(allRecords.rows)
+        console.log(res)
     } catch (error) {
         console.log(error.message)
     }
